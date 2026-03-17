@@ -71,8 +71,6 @@ static void gen_loop(Ast *l)
         printf("  cmpq $0, %%rax\n");
         printf("  je .L%d_end\n", loop_count);
     }
-
-	printf(".L%d_body:\n", loop_count);
 	gen_block(l->loop.body, l->loop.body_length);
 	if (l->loop.update)
         gen_stmt(l->loop.update);
